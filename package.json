@@ -1,0 +1,15 @@
+{
+  "name": "boonsupplyprotractorpom",
+  "version": "1.0.0",
+  "description": "boonSupply Test Suite based on Protractor POM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "jasmine": "3.4.0",
+    "protractor": "^5.4.2"
+  },
+  "author": "Kovid Mehta",
+  "license": "ISC"
+}
