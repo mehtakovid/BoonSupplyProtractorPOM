@@ -2,7 +2,7 @@ var ProductDetailsPage = function(){
 
     this.AddItemToCart = function(){
 
-        var productName = element(by.xpath("//h1[@class='pv-title']")).getText().then(function(ProductName){
+        element(by.xpath("//h1[@class='pv-title']")).getText().then(function(ProductName){
             console.log("Name of the Product is : " +ProductName);
 
         });
@@ -19,6 +19,30 @@ var ProductDetailsPage = function(){
 
         });
     }
+
+    this.addmultipleItemsInCart = function(Quantity){
+        var EC = protractor.ExpectedConditions;
+        browser.wait(EC.presenceOf(element(by.xpath("//h1[@class='pv-title']"))),5000);
+        for(var i=0; i<Quantity; i++){
+            element(by.xpath("//div[@class='pv-action pv-qty']//span[3]")).click().then(function(){
+                console.log('here');
+            });
+        }
+
+            element(by.xpath("//button[@id='btnAddToBag']")).click().then(function(){
+
+                browser.sleep(5000);
+                element(by.xpath("//div[@id='bagItems']//input[@name='quantity']")).getText().then(function(cartQuantity){
+                console.log(cartQuantity);        
+                expect(cartQuantity).toEqual(Quantity+1);
+
+            });
+                
+            
+        });
+
+    }
+
 
 
 };

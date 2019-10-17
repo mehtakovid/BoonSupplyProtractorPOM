@@ -3,9 +3,9 @@
         directConnect: true,
         specs: ["BoonSupplyTests/BoonSupplyTest.js"],
         onPrepare: function () {
+            browser.ignoreSynchronization = true;
             browser.get("https://www.boonsupply.com/");
             browser.manage().window().maximize();
-            browser.ignoreSynchronization = true;
         },
         jasmineNodeOpts: {
             showColors: true,

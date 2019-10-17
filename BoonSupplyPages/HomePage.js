@@ -22,6 +22,25 @@ var homePage = function() {
 
     }
 
+    this.GoToSportsCollection = function(){
+        var EC = protractor.ExpectedConditions;
+        browser.wait(EC.presenceOf(element(by.xpath("//nav[@id='hdrNav']//button[contains(text(),'Shop')]"))), 5000);
+
+        element(by.xpath("//nav[@id='hdrNav']//button[contains(text(),'Shop')]")).click().then(function(){
+            element(by.xpath("//ul[@id='menuShopList']//a[contains(text(),'Sports')]")).click();
+        });
+    
+    }
+
+    this.ClickOnLogin = function(){
+        var EC = protractor.ExpectedConditions;
+        browser.wait(EC.presenceOf(element(by.xpath("//a[@id='hdrSignInHdrUtils']"))),10000);
+        element(by.xpath("//a[@id='hdrSignInHdrUtils']")).click().then(function(){
+            browser.sleep(3000);
+            console.log("Clicked on Login");
+        });
+    };
+
 }
 
 module.exports = new homePage();
